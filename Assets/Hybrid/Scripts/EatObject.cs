@@ -20,13 +20,13 @@ namespace TastyCirclesHybrid
             spawnFood = GameObject.FindGameObjectWithTag("GameManager").GetComponent<SpawnAI>();
         }
 
-        private void OnTriggerEnter2D(Collider2D collision)
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            if (collision.gameObject.transform.localScale.x < gameObject.transform.localScale.x)
+            if (other.gameObject.transform.localScale.x < gameObject.transform.localScale.x)
             {
-                Grow(collision);
+                Grow(other);
                 spawnFood.foodCount--;
-                Destroy(collision.gameObject);
+                Destroy(other.gameObject);
             }
             else
             {

@@ -18,8 +18,6 @@ namespace TastyCirclesHybrid
         [HideInInspector]
         public int enemyCount = 0;
 
-        public float speed = 1f;
-
         Vector2 playArea;
 
         public bool canRespawn = true;
@@ -37,7 +35,7 @@ namespace TastyCirclesHybrid
             {
                 Spawn(ref food);
                 //set velocity
-                manager.SetComponentData(entity, new Move { velocity = speed });
+                manager.SetComponentData(entity, new Move { velocity = GameManager.instance.foodSpeed });
                 SetColor(ref food);
                 foodCount++;
             }
@@ -46,7 +44,7 @@ namespace TastyCirclesHybrid
             {
                 Spawn(ref enemy);
                 //set velocity
-                manager.SetComponentData(entity, new Move { velocity = speed });
+                manager.SetComponentData(entity, new Move { velocity = GameManager.instance.enemySpeed });
             }
         }
 
@@ -54,13 +52,18 @@ namespace TastyCirclesHybrid
         {
             if (canRespawn == true)
             {
-                if (foodCount < foodLimit)
+                for(int i = 0; i < 100; i++)
                 {
-                    Spawn(ref food);
-                    foodCount++;
-                    //set velocity
-                    manager.SetComponentData(entity, new Move { velocity = speed });
-                    SetColor(ref food);
+                    if (foodCount < foodLimit)
+                    {
+                        Spawn(ref food);
+                        foodCount++;
+                        //set velocity
+                        manager.SetComponentData(entity, new Move { velocity = GameManager.instance.foodSpeed });
+                        SetColor(ref food);
+                    }
+                    else
+                        break;
                 }
             }
         }

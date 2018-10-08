@@ -579,7 +579,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   food: {fileID: 3928020999878751162, guid: 3f2eb369620bdae4ca7733b5799dcc00, type: 3}
   enemy: {fileID: 1566480053836426293, guid: 375b07e0a6aea4840be306fbd9147eb6, type: 3}
-  enemyLimit: 3
+  enemyLimit: 30
   foodLimit: 2400
   foodCount: 0
   enemyCount: 0

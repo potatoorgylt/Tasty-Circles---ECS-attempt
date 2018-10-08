@@ -12,7 +12,11 @@ GameObject:
   - component: {fileID: 1566480053836426294}
   - component: {fileID: 7081941944248219629}
   - component: {fileID: 948997807702257731}
-  - component: {fileID: 6347988918241002098}
+  - component: {fileID: 7429455490275047027}
+  - component: {fileID: 4998383887567040427}
+  - component: {fileID: 7681368268190224976}
+  - component: {fileID: 4259999721187669868}
+  - component: {fileID: 71247441155766380}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -110,7 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c01f4d3312962934286850a4edda8f24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6347988918241002098
+--- !u!114 &7429455490275047027
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,7 +123,63 @@ MonoBehaviour:
   m_GameObject: {fileID: 1566480053836426293}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5da7e2ffeaafcc14fa5dd63748276aec, type: 3}
+  m_Script: {fileID: 11500000, guid: 5bf10cdea1344482e91a4f2b58506b77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+--- !u!114 &4998383887567040427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566480053836426293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f922032aad1e4f109e892944af196e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7681368268190224976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566480053836426293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9ac551773769c84ebba1090025b5733, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedData:
+    velocity: 0
+--- !u!114 &4259999721187669868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566480053836426293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af0db853e732453799566a0e597993c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedData:
+    Value:
+      x: 0
+      y: 0
+      z: 0
+--- !u!114 &71247441155766380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566480053836426293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e8f9b4aa8220284c81fa58954be96c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedData:
+    faction: 1

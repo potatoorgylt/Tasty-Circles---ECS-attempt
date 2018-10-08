@@ -12,6 +12,7 @@ namespace TastyCirclesHybrid
         {
             public ComponentDataArray<Position> positions;
             public ComponentDataArray<Move> moves;
+            public readonly ComponentDataArray<Faction> factions;
             public readonly int Length;
         }
 
@@ -22,16 +23,26 @@ namespace TastyCirclesHybrid
         private List<Vector2> nextPos = new List<Vector2>();
         private FoodWanderTime foodWanderTime;
 
+        SpawnAI spawnAI;
+
+        private float foodSpeed;
+        private float enemySpeed;
+
         protected override void OnStartRunning()
         {
             base.OnStartRunning();
             foodWanderTime = GameManager.instance.GetComponent<FoodWanderTime>();
+
+            playArea = GameManager.instance.playArea;
+
+            foodSpeed = GameManager.instance.foodSpeed;
+            enemySpeed = GameManager.instance.enemySpeed;
+
         }
 
         protected override void OnUpdate()
         {
             float dt = Time.deltaTime;
-            playArea = GameManager.instance.playArea;
 
             for(int i = 0; i < m_Group.Length; i++)
             {
@@ -49,7 +60,10 @@ namespace TastyCirclesHybrid
 
                 if(foodWanderTime.WanderTime() > 0f)
                 {
-                    pos = Vector2.MoveTowards(pos, nextPos[i], 1f * Time.deltaTime);
+                    if(m_Group.factions[i].faction == 0)
+                        pos = Vector2.MoveTowards(pos, nextPos[i], foodSpeed * Time.deltaTime);
+                    else
+                        pos = Vector2.MoveTowards(pos, nextPos[i], enemySpeed * Time.deltaTime);
                 }
                 else
                 {

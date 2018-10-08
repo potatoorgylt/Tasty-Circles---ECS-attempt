@@ -41,11 +41,16 @@ namespace TastyCirclesClassic
         {
             if (canRespawn == true)
             {
-                if (foodCount < foodLimit)
+                for (int i = 0; i < 100; i++)
                 {
-                    Spawn(food);
-                    foodCount++;
-                    food.GetComponent<SpriteRenderer>().color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
+                    if (foodCount < foodLimit)
+                    {
+                        Spawn(food);
+                        foodCount++;
+                        food.GetComponent<SpriteRenderer>().color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
+                    }
+                    else
+                        break;
                 }
             }
         }

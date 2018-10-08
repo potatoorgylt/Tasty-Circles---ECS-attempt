@@ -283,6 +283,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7365131681617927020, guid: 341b3769bf4223b4fb5cddb81c75fab1, type: 3}
   m_PrefabInstance: {fileID: 7112732565445536317}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &812449103 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7365131681617927022, guid: 341b3769bf4223b4fb5cddb81c75fab1, type: 3}
+  m_PrefabInstance: {fileID: 7112732565445536317}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &812449104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 812449103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b300f99dd949b3140b1b8be1e8cd79c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &845322048
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,6 +575,7 @@ GameObject:
   - component: {fileID: 2021598512}
   - component: {fileID: 2021598510}
   - component: {fileID: 2021598509}
+  - component: {fileID: 2021598513}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -592,11 +610,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   food: {fileID: 3928020999878751162, guid: dd00423c8fe9c8c4bbb8766a324e2257, type: 3}
   enemy: {fileID: 1566480053836426293, guid: 22228e6083b034d4f9c90fcef2644d62, type: 3}
-  enemyLimit: 0
+  enemyLimit: 30
   foodLimit: 2400
   foodCount: 0
   enemyCount: 0
-  speed: 1
   canRespawn: 1
 --- !u!4 &2021598511
 Transform:
@@ -625,6 +642,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playArea: {x: 30, y: 30}
+  foodSpeed: 1
+  enemySpeed: 5
+--- !u!114 &2021598513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021598508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c01f4d3312962934286850a4edda8f24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7112732565445536317
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -680,15 +711,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 6050163408611554210, guid: 341b3769bf4223b4fb5cddb81c75fab1, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6050163408611554212, guid: 341b3769bf4223b4fb5cddb81c75fab1, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 6050163409797988479, guid: 341b3769bf4223b4fb5cddb81c75fab1, type: 3}
-    - {fileID: 6050163408611554212, guid: 341b3769bf4223b4fb5cddb81c75fab1, type: 3}
+    - {fileID: 812449104, guid: 341b3769bf4223b4fb5cddb81c75fab1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 341b3769bf4223b4fb5cddb81c75fab1, type: 3}

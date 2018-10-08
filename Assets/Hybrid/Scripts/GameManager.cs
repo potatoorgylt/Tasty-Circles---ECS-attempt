@@ -11,6 +11,9 @@ namespace TastyCirclesHybrid
 
         public Vector2 playArea;
 
+        public float foodSpeed = 1f;
+        public float enemySpeed = 5f;
+
         private void Awake()
         {
             if (instance != null)
