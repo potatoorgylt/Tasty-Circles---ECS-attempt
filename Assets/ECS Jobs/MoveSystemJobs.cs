@@ -1,6 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Unity.Collections;
 using Unity.Entities;
+using Unity.Burst;
+using Unity.Jobs;
+using Unity.Mathematics;
 using Unity.Transforms;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -8,9 +10,54 @@ using Random = UnityEngine.Random;
 namespace TastyCirclesHybrid
 {
     // Moves objects within world bounds.
-    public class MoveSystem : ComponentSystem
+    /*public class MoveSystemJobs : JobComponentSystem
     {
-        struct Group
+        [BurstCompile]
+        struct MovementJob : IJobProcessComponentData<Position, Move>
+        {
+            public float moveSpeed;
+            public float deltaTime;
+            public Vector2 playArea;
+            public float wanderTime;
+
+            private Vector2 nextPos;
+
+            public void Execute(ref Position position, [ReadOnly] ref Move speed)
+            {
+                float3 pos = position.Value;
+                if (wanderTime > 0f)
+                {
+                    //pos = Vector3.MoveTowards(pos, nextPos, moveSpeed * deltaTime);
+                    pos.x += deltaTime * speed.velocity;
+                    pos.y += deltaTime * speed.velocity;
+                }
+                else
+                {
+                    //This causes Unity crash, my guess is that it's caused by Random.Range since it's called from the main thread.
+                    //nextPos = new Vector2(Random.Range(-playArea.x, playArea.x), Random.Range(-playArea.y, playArea.y));
+                    //Let's try to think of something else
+                    //nextPos += deltaTime * speed.velocity;
+                }
+
+                position.Value = pos;
+            }
+        }
+
+        protected override JobHandle OnUpdate(JobHandle inputDeps)
+        {
+            MovementJob moveJob = new MovementJob
+            {
+                wanderTime = GameManager.instance.WanderTime(),
+                playArea = GameManager.instance.playArea,
+                deltaTime = Time.deltaTime,
+            };
+
+            JobHandle moveHandle = moveJob.Schedule(this, inputDeps);
+
+            return moveHandle;
+        }
+
+        /*struct Group
         {
             public ComponentDataArray<Position> positions;
             public ComponentDataArray<Move> moves;
@@ -19,6 +66,8 @@ namespace TastyCirclesHybrid
         }
 
         [Inject] Group m_Group;
+
+        
 
         Vector2 playArea;
 
@@ -75,5 +124,5 @@ namespace TastyCirclesHybrid
                 m_Group.positions[i] = new Position { Value = pos };
             }
         }
-    }
+    }*/
 }

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
 
 namespace TastyCirclesHybrid
@@ -36,6 +34,33 @@ namespace TastyCirclesHybrid
         {
             Debug.Log("Defeat");
             EditorApplication.isPaused = true;
+        }
+
+
+        //Food wander time in game manager
+        public float timeUntilNextWander = 2f;
+        private float curTime = 0f;
+
+        private void Update()
+        {
+            CountWanderTime();
+        }
+
+        private void CountWanderTime()
+        {
+            if (curTime < timeUntilNextWander)
+            {
+                curTime = curTime + Time.deltaTime;
+            }
+            else
+            {
+                curTime = 0f;
+            }
+        }
+
+        public float WanderTime()
+        {
+            return curTime;
         }
     }
 }
